@@ -26,9 +26,9 @@ $status = ($line | Select-String -Pattern "status: '[a-zA-Z]*'").Matches[0].Valu
 # Map to checkmk/nagios states
 switch ($status) 
 {
-    Success {"0"}
-    Warning {"1"}
-    Failed {"2"}
+    Success {$statusNumber = "0"}
+    Warning {$statusNumber = "1"}
+    Failed {$statusNumber = "2"}
 }
 
 # Output in checkmk localcheck Format
